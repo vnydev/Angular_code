@@ -1,2 +1,2 @@
-# Angular_code
-it is all about angular
+#README File 
+angular is a super javascript framework to build spa with MVC concept.
