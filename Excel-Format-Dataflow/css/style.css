@@ -1,0 +1,71 @@
+.listview{
+    height: 100%;
+    width: auto;
+    overflow-x: auto;
+    margin: 0px auto;
+}
+table thead tr th{
+    background-color: darkblue;
+    color: #fff;
+    text-align: center;
+}
+table thead tr th select {
+    color: black;
+}
+table thead tr th select option {
+    color: black;
+    text-align: center;
+}
+h1{
+    text-align: center;
+    font-size: 22px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+h3{
+    text-align: left;
+    font-size: 18px;
+    color: #8c8c8c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+table tr td{
+    text-align: center;
+}
+td.thalign{
+    text-align: left;
+}
+
+/* Start Loader css*/
+.load-out {position: relative; padding:0;}
+.all-cls-ldr { background:none;bottom: 0; height: 100px; left: 0; margin: auto; position: absolute; text-align: center; top: 0; width: 100%; z-index: 9;}
+.load-out .inr-ldr { height: 50px; left: 0; margin: auto; position: absolute; right: 0; top: 10%; width: 50px;}
+.inr-ldr  .loader { border: 10px solid #f3f3f3;  border-radius: 50%;  border-top: 10px solid #3498db;  border-bottom: 10px solid #3498db;  width: 80px;  height: 80px;  -webkit-animation: spin 2s linear infinite; animation: spin 2s linear infinite;}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+footer.mobile-vers{ display:none;}
+
+/* #Tablet (Portrait) */
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    .container {
+        width: 768px;
+    }
+}
+.lod .all-cls-ldr{
+  display:block !important;
+  /* width: 100%; */
+}
+.inr-ldr  .loader{
+    margin: 0px auto;
+    /* width: 100%; */
+    text-align: center;
+}
+/* End Loader css */

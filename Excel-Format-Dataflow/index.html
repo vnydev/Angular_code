@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body ng-app="mymod" ng-controller="myctrl" ng-cloak>
+    <h1>{{title}} </h1>
+    <div ng-show="showloader" class="lod">
+        <div loader></div>
+    </div>
+    <div class="col-md-12 listview" ng-hide="hideloader">
+        <h3 ng-if="selected.days == undefined">Dataflow Default 14 Days</h3>
+        <h3 ng-if="selected.days == 0">Dataflow Default 14 Days</h3>
+        <h3 ng-if="selected.days == 14">Dataflow Next {{selected.days}} Days</h3>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            <select name="" id="" ng-model="selected.selectedCategories">
+                            <option value="">#</option>
+                            <option ng-repeat="cat in categorieslist | unique:'label'"  value="{{cat.label}}">{{$index + 1}} </option>
+                        </select>
+                        </th>
+                        <th>
+                            <select name="" id="" ng-model="selected.selectedCategories">
+                            <option value="">Choose Categories</option>
+                            <option ng-repeat="cat in categorieslist | unique:'label'"  value="{{cat.label}}">{{cat.label}} </option>
+                        </select>
+                        </th>
+                        <th ng-repeat="heading in datalist" id="{{$index}}" ng-model="labelname" value="heading.label">{{heading.label}} </th>
+                        <th>
+                            <select name="" id="" ng-model="selected.days" ng-change="nextdata(selected.days)">
+                            <option value="">Choose Days </option>
+                            <option value="0">Default 14 Days</option>
+                            <option value="14">Next 14 Days</option>
+                        </select>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cat in categorieslist | unique:'label' | customitems:selected.selectedCategories">
+                        <td>{{$index + 1}} </td>
+                        <td class="thalign">{{cat.label}} </td>
+                        <td ng-repeat="head in datalist">
+                            <span ng-repeat="v in head.values | customitems:selected.selectedCategories" ng-if="v.label == cat.label">{{v.value}} <br> </span>
+                        </td>
+                        <td>
+                            <span ng-repeat="day in datalist[0].values" ng-if="day.label == cat.label">{{day.value}} <br> </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./lib/jquery.js"></script>
+    <script src="./lib/bootstrap.js"></script>
+    <script src="./lib/angular.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
